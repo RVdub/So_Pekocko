@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const sauceRoutes = require('./routes/sauce');
-const userIdRoutes = require('./routes/userId');
+const userRoutes = require('./routes/user');
 const path = require('path');
 
 
-mongoose.connect('mongodb+srv://user-admin:eIgBlDgue9pJ4yGv@cluster0.tmel9.mongodb.net/So Pekocko App?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://user-admin:eIgBlDgue9pJ4yGv@cluster0.tmel9.mongodb.net/<dbname>?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
@@ -22,11 +22,12 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/sauces', sauceRoutes);
-app.use('/api/auth', userIdRoutes);
+app.use('/api/auth', userRoutes);
 
 
 module.exports = app;
