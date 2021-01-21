@@ -24,7 +24,7 @@ Après ces installations complémentaires, tapez: ng serve sur la console de com
 Puis ouvrez le site web sur votre navigateur: http://localhost:4200
 
 
-Enfin, pour lancer le backend, exéutez dans la console: npm intall
-et npm install -g nodemon
+Enfin, pour lancer le backend, exéutez dans la console: npm intall et npm install -g nodemon
+Ajouter le fichier .env, envoyé à part, sur la racine du projet.
 Ces dernières installations terminées, tapez nodemon server
 Et voilà, c'est tout ;)
